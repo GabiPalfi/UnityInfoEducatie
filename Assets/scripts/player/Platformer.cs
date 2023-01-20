@@ -79,6 +79,10 @@ public class Platformer : MonoBehaviour
     public Key followingKey;
     public GameObject powerUpDoubleJump;
     public GameObject powerUpDash;
+
+    [Header("Sound")]
+    [SerializeField] private AudioSource jump;
+    [SerializeField] private AudioSource walk;
    
     [Header("Camera")]
     public GameObject camera;
@@ -138,7 +142,6 @@ public class Platformer : MonoBehaviour
             //     x=0;
             // }
             float moveBy = x * speed;
-
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
             
             if(x > 0.01f){
@@ -155,10 +158,16 @@ public class Platformer : MonoBehaviour
                 anim.SetBool("IsRunning", false);
             }else
                 anim.SetBool("IsRunning", true);
+                //walk.Play();
             }
-            
+            if(rb.velocity.x != 0 && isGrounded==true){
+                if(!walk.isPlaying){
+                    walk.Play();
+                }
+            }else{
+                walk.Stop();
+            }
         }
-        
     }
     void Jump() {
         if (jumpPresed && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor || additionalJumps > 0)) {
@@ -166,6 +175,7 @@ public class Platformer : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             additionalJumps--;
             anim.SetTrigger("TakeOf");
+            jump.Play();
         }
     }
 

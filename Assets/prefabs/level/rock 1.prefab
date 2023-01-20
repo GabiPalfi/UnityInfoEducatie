@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 1163657651360581694}
   camera: {fileID: 0}
+  Seffect: {fileID: 8300000, guid: 873096bba95a30b4ca3b49f6d8a0a906, type: 3}
 --- !u!1 &1163657651360581694
 GameObject:
   m_ObjectHideFlags: 0

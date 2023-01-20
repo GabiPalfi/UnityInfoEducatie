@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: {fileID: 0}
   camera: {fileID: 0}
+  Seffect: {fileID: 8300000, guid: af88e6cc55768da438c5f180aac63bf9, type: 3}
 --- !u!61 &8599204823429384052
 BoxCollider2D:
   m_ObjectHideFlags: 0

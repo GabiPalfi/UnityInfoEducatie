@@ -15,6 +15,7 @@ public class Katana : MonoBehaviour
     public bool gettingAttacked;
     public Platformer thePlayer;
     public UpgradeSistem upgrade;
+    [SerializeField] private AudioSource slash;
 
    [Header("Sprites")]
    public Sprite katana2;
@@ -67,6 +68,7 @@ public class Katana : MonoBehaviour
             Instantiate(efect,transform.position,Quaternion.identity);
             canAttack = false;
             col.enabled = !col.enabled;
+            slash.Play();
             StartCoroutine(Coroutine());
         }
        

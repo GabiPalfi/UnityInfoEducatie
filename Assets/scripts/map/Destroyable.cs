@@ -7,6 +7,7 @@ public class Destroyable : MonoBehaviour
     public GameObject effect;
     public GameObject camera;
     CameraScript cam;
+    [SerializeField] private AudioClip Seffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +17,7 @@ public class Destroyable : MonoBehaviour
      private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "katana"){
             cam.isShaking=true;
+            SoundManager.Instance.PlaySound(Seffect);
             Instantiate(effect,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }

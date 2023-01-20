@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     CameraScript cam;
     public Platformer player;
     public GameObject deathEffect;
+    [SerializeField] private AudioSource hit;
 
     [Header("Patrol")]
     public Transform patrolPoint1;
@@ -32,6 +33,8 @@ public class Enemy : MonoBehaviour
     {
         if(Health<=0){
             Instantiate(deathEffect,transform.position,Quaternion.identity);
+            hit.Play();
+            StartCoroutine(Cooldown());
             Destroy(this.gameObject);
             Counter.enemyKilled +=1;
         }
@@ -64,5 +67,6 @@ public class Enemy : MonoBehaviour
     }
     private IEnumerator Cooldown(){
         yield return new WaitForSeconds(0.1f);
+        hit.Play();
     }
 }
