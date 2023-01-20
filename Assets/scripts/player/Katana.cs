@@ -13,6 +13,14 @@ public class Katana : MonoBehaviour
     public float speed;
     public bool weaponOwned;
     public bool gettingAttacked;
+    public Platformer thePlayer;
+    public UpgradeSistem upgrade;
+
+   [Header("Sprites")]
+   public Sprite katana2;
+   public Sprite axe;
+   public Sprite katana3;
+   public Sprite axe2;
     // public GameObject camera;
     // CameraScript cam;
     
@@ -21,8 +29,13 @@ public class Katana : MonoBehaviour
     {
         col = GetComponent<CircleCollider2D>();
         anim = gameObject.GetComponent<Animator>();
+        thePlayer = FindObjectOfType<Platformer>();
+        upgrade= FindObjectOfType<UpgradeSistem>();
+        
         // col.enabled = !col.enabled;
         // cam = camera.GetComponent<CameraScript>();
+
+       
     }
 
     // Update is called once per frame
@@ -68,5 +81,31 @@ public class Katana : MonoBehaviour
             weaponOwned = true;
             col.enabled = !col.enabled;
         }
+        if(other.tag == "Grass"){
+            Counter.grassDestroyed +=1;
+        }
+        if(other.tag == "Rock"){
+            Counter.rockDestroyed +=1;
+        }
+    }
+    public void Katana2(){
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = katana2;
+        attackColdown-=0.1f;
+        thePlayer.playerDamage=70;
+    }
+    public void Axe(){
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = axe;
+        attackColdown+=0.2f;
+        thePlayer.playerDamage=90;
+    }
+    public void Katana3(){
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = katana3;
+        attackColdown-=0.1f;
+        thePlayer.playerDamage+=100;
+    }
+     public void Axe2(){
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = axe2;
+        attackColdown+=0.2f;
+        thePlayer.playerDamage=150;
     }
 }

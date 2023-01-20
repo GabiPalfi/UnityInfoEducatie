@@ -47,6 +47,7 @@ public class EnemyBrute : MonoBehaviour
         if(Health<=0){
             Instantiate(deathEffect,effctPos,Quaternion.identity);
             Destroy(this.gameObject);
+            Counter.enemyKilled+=1;
         }
         disToPlayer = Vector2.Distance(transform.position,playerPos.position);
 
@@ -107,11 +108,16 @@ public class EnemyBrute : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "katana"){
             StartCoroutine(Cooldown());
-            Health-=50;
+            Health-=player.playerDamage;
             cam.isShaking=true;
             transform.position = new Vector2(transform.position.x+knockback*player.direction,transform.position.y);
             Instantiate(blood,effctPos,Quaternion.identity);
             player.transform.position = new Vector2(player.transform.position.x+playerKnockback*-player.direction,player.transform.position.y); 
+        }
+        if(other.tag == "Ball"){
+            Health=0;
+            cam.isShaking=true;
+            Instantiate(deathEffect,effctPos,Quaternion.identity);
         }
     }
     private IEnumerator Cooldown(){

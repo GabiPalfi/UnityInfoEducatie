@@ -8,12 +8,14 @@ public class Platformer : MonoBehaviour
     Rigidbody2D rb;
 
     [Header("Movement")]
+    public bool canMove=true;
     public float speed;
     public float scale;
     public float direction;
     public float c_y;
     public float c_x;
     public float x;
+    public float stunDuration;
 
     [Header("Health")]
     public int maxHealth;
@@ -22,12 +24,19 @@ public class Platformer : MonoBehaviour
     public bool receveHealth;
 
     [Header("Damage")]
+    public int playerDamage;
     public int CrabDamage;
     public int SpikeDamage;
     public int HamerDamage;
     public int TankDamage;
     public int knockback;
     public int plantHealth;
+    public Transform resetPos;
+    public Transform resetPos2;
+    public int waterDamage;
+    public int FishDamage;
+    public int ochiDamage;
+    public int axeObstacleDamage;
     
     [Header("Jumping")]
     public float jumpForce;
@@ -77,6 +86,7 @@ public class Platformer : MonoBehaviour
 
     [Header("Animation")]
     private Animator anim;
+    public bool canAnimate;
 
     [Header("Mobile")]
     public Joystick joyStick;
@@ -95,6 +105,7 @@ public class Platformer : MonoBehaviour
         endPos = GameObject.Find("Main Camera").GetComponent<CameraScript>().endY;
         kat = katana.GetComponent<Katana>();
         cam = camera.GetComponent<CameraScript>();
+        canAnimate=true;
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -116,35 +127,38 @@ public class Platformer : MonoBehaviour
 
 
     void Move() {
-        float x = Input.GetAxisRaw("Horizontal");
-        //float x = joyStick.Horizontal;
-        // if(joyStick.Horizontal>=0.2f){
-        //     x = 1;
-        // }else if(joyStick.Horizontal <= -0.2f){
-        //     x=-1;
-        // }else{
-        //     x=0;
-        // }
+        if(canMove){
+            float x = Input.GetAxisRaw("Horizontal");
+            // float x = joyStick.Horizontal;
+            // if(joyStick.Horizontal>=0.2f){
+            //     x = 1;
+            // }else if(joyStick.Horizontal <= -0.2f){
+            //     x=-1;
+            // }else{
+            //     x=0;
+            // }
+            float moveBy = x * speed;
 
+            rb.velocity = new Vector2(moveBy, rb.velocity.y);
             
-
-        float moveBy = x * speed;
-
-        rb.velocity = new Vector2(moveBy, rb.velocity.y);
-        
-        if(x > 0.01f){
-            direction = c_x;
-            transform.localScale = new Vector3(direction,c_y,1);
-        }else{
-            if(x < -0.01f){
-                direction = -c_x;
+            if(x > 0.01f){
+                direction = c_x;
                 transform.localScale = new Vector3(direction,c_y,1);
+            }else{
+                if(x < -0.01f){
+                    direction = -c_x;
+                    transform.localScale = new Vector3(direction,c_y,1);
+                }
             }
+            if(canAnimate){
+                if(x == 0){
+                anim.SetBool("IsRunning", false);
+            }else
+                anim.SetBool("IsRunning", true);
+            }
+            
         }
-        if(x == 0){
-            anim.SetBool("IsRunning", false);
-        }else
-            anim.SetBool("IsRunning", true);
+        
     }
     void Jump() {
         if (jumpPresed && (isGrounded || Time.time - lastTimeGrounded <= rememberGroundedFor || additionalJumps > 0)) {
@@ -184,6 +198,7 @@ public class Platformer : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             currentHealth-=CrabDamage;
             Hurt();
+            Stuned();
         }
         if(collision.collider.name == "Spike" ){
             currentHealth-=SpikeDamage;
@@ -211,17 +226,42 @@ public class Platformer : MonoBehaviour
             cam.isShaking = true;
             Destroy(powerUpDash);
         }
+        if(collision.collider.name == "Water"){
+            transform.position = resetPos.position;
+            cam.isShaking = true;
+            currentHealth -= waterDamage;
+            healthBar.SetHealth(currentHealth);
+        }
+        if(collision.collider.name == "Water1"){
+            transform.position = resetPos2.position;
+            cam.isShaking = true;
+            currentHealth -= waterDamage;
+            healthBar.SetHealth(currentHealth);
+        }
+        if(collision.collider.name == "Fish"){
+            cam.isShaking = true;
+            currentHealth -= FishDamage;
+            healthBar.SetHealth(currentHealth);
+        }
+        if(collision.collider.name == "Ochi"){
+            cam.isShaking = true;
+            currentHealth -= ochiDamage;
+            healthBar.SetHealth(currentHealth);
+        }
+        if(collision.collider.name == "Axe Obstacle"){
+            cam.isShaking = true;
+            currentHealth -= axeObstacleDamage;
+            healthBar.SetHealth(currentHealth);
+        }
         
         
         
     }
     // private void OnTriggerEnter2D(Collider2D other) {
-    //     if(other.tag == "Enemy"){
+    //     if(other.tag == "Ochi"){
     //         cam.isShaking = true;
-    //         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //         currentHealth-=damage;
+    //         currentHealth -= ochiDamage;
     //         healthBar.SetHealth(currentHealth);
-    //         transform.position = new Vector2(transform.position.x +3*-direction,transform.position.y);
     //     }
     // }
 
@@ -236,6 +276,10 @@ public class Platformer : MonoBehaviour
         cam.isShaking = true;
         healthBar.SetHealth(currentHealth);
         transform.position = new Vector2(transform.position.x +3*-direction,transform.position.y);
+    }
+    void Stuned(){
+        canMove=false;
+        StartCoroutine(Stun());
     }
     void WalkingChecker(){
         if(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.D)){
@@ -297,5 +341,9 @@ public class Platformer : MonoBehaviour
         yield return new WaitForSeconds(dashcooldown);
         isDashReady = true;
 
+    }
+    private IEnumerator Stun(){
+        yield return new WaitForSeconds(stunDuration);
+        canMove=true;
     }
 }

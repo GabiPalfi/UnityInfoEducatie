@@ -9,6 +9,12 @@ TagManager:
   - endPos
   - end
   - katana
+  - Grass
+  - Rock
+  - border
+  - Ball
+  - Ochi
+  - WallD
   layers:
   - Default
   - TransparentFX

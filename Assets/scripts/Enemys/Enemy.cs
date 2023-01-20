@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         if(Health<=0){
             Instantiate(deathEffect,transform.position,Quaternion.identity);
             Destroy(this.gameObject);
+            Counter.enemyKilled +=1;
         }
         if(is1active){
             transform.position = Vector2.MoveTowards(transform.position,patrolPoint1.position,speed*Time.deltaTime);
@@ -54,7 +55,7 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "katana"){
             StartCoroutine(Cooldown());
-            Health-=50;
+            Health-=player.playerDamage;
             cam.isShaking=true;
             transform.position = new Vector2(transform.position.x+knockback*player.direction,transform.position.y);
             Instantiate(blood,transform.position,Quaternion.identity);
