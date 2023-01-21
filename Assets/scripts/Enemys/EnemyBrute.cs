@@ -29,6 +29,7 @@ public class EnemyBrute : MonoBehaviour
     public Transform smashPos;
     [SerializeField] private AudioSource hit;
     [SerializeField] private AudioClip die;
+    [SerializeField] private AudioClip hammer;
 
     // [Header("Patrol")]
     // public Transform patrolPoint1;
@@ -84,6 +85,7 @@ public class EnemyBrute : MonoBehaviour
     private IEnumerator Wait(){
         isAttacking = false;
         yield return new WaitForSeconds(1f);
+        SoundManager.Instance.PlaySound(hammer);
         Instantiate(smash,smashPos.position,Quaternion.identity);
         cam.isShaking=true;
         anim.SetBool("IsAttacking", false);

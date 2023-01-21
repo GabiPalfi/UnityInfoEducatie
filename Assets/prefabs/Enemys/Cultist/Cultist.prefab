@@ -759,6 +759,7 @@ MonoBehaviour:
   smashPos: {fileID: 3869703104707843877}
   hit: {fileID: -8684419055208219912}
   die: {fileID: 8300000, guid: b3df83fe645839e4dac7d71f48d3f88d, type: 3}
+  hammer: {fileID: 8300000, guid: 1c8d8637b8fb7ea4097c3ed0c4dc5488, type: 3}
 --- !u!95 &1436643313609115351
 Animator:
   serializedVersion: 3
