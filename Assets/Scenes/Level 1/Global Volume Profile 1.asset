@@ -63,7 +63,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: -0.02
   contrast:
     m_OverrideState: 1
     m_Value: 19
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   components:
   - {fileID: 5733607077966291984}
-  - {fileID: -4837515006037104517}
   - {fileID: -4558931274903943263}
+  - {fileID: -4837515006037104517}
 --- !u!114 &5733607077966291984
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -126,12 +126,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.443
+    m_Value: 0.4
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.075
+    m_Value: 0.33
     min: 0.01
     max: 1
   rounded:
