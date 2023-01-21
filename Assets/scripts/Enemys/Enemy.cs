@@ -33,7 +33,6 @@ public class Enemy : MonoBehaviour
     {
         if(Health<=0){
             Instantiate(deathEffect,transform.position,Quaternion.identity);
-            hit.Play();
             StartCoroutine(Cooldown());
             Destroy(this.gameObject);
             Counter.enemyKilled +=1;
