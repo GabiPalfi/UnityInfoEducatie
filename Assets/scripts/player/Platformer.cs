@@ -83,6 +83,8 @@ public class Platformer : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private AudioSource jump;
     [SerializeField] private AudioSource walk;
+    [SerializeField] private AudioSource dashSound;
+    [SerializeField] private AudioClip waterSound;
    
     [Header("Camera")]
     public GameObject camera;
@@ -241,12 +243,14 @@ public class Platformer : MonoBehaviour
             cam.isShaking = true;
             currentHealth -= waterDamage;
             healthBar.SetHealth(currentHealth);
+            SoundManager.Instance.PlaySound(waterSound);
         }
         if(collision.collider.name == "Water1"){
             transform.position = resetPos2.position;
             cam.isShaking = true;
             currentHealth -= waterDamage;
             healthBar.SetHealth(currentHealth);
+            SoundManager.Instance.PlaySound(waterSound);
         }
         if(collision.collider.name == "Fish"){
             cam.isShaking = true;
@@ -316,6 +320,7 @@ public class Platformer : MonoBehaviour
         if(canDash){
             if(isDashReady && hasBeenPresed){
                 rb.velocity = Vector2.left *dashSpeed*-direction;
+                dashSound.Play();
                 StartCoroutine(DashCooldown());
                 Instantiate(dashEffect,transform.position,Quaternion.identity);
                 Instantiate(dashEffect1,transform.position,Quaternion.identity);

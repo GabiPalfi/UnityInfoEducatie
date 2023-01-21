@@ -38,6 +38,7 @@ public class UpgradeSistem : MonoBehaviour
     ChestScript armor;
     Katana kat;
     public Platformer thePlayer;
+    [SerializeField] private AudioClip Seffect;
 
     public void Start(){
         kat = katana.GetComponent<Katana>();
@@ -90,6 +91,7 @@ public class UpgradeSistem : MonoBehaviour
     
     public void AxeBought(){
         if((Counter.grassDestroyed>=axePlantRequiere && Counter.rockDestroyed>=axeRockRequiere)&&axeBought2==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=axePlantRequiere;
             Counter.rockDestroyed-=axeRockRequiere;
             hasAxeBought2 = true;
@@ -103,6 +105,7 @@ public class UpgradeSistem : MonoBehaviour
 
     public void KatanaBought(){
         if((Counter.grassDestroyed>=katanaPlantRequiere && Counter.rockDestroyed>=katanaRockRequiere)&&katanaUpgrade2==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=katanaPlantRequiere;
             Counter.rockDestroyed-=katanaRockRequiere;
             hasKatanaBought2 = true;
@@ -115,6 +118,7 @@ public class UpgradeSistem : MonoBehaviour
     }
     public void KatanaBought2(){
         if((Counter.grassDestroyed>=katanaPlantRequiere && Counter.rockDestroyed>=katanaRockRequiere)&&katanaUpgrade3==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=katanaPlantRequiere;
             Counter.rockDestroyed-=katanaRockRequiere;
             hasKatanaBought3 = true;
@@ -127,6 +131,7 @@ public class UpgradeSistem : MonoBehaviour
     }
     public void AxeBought2(){
         if((Counter.grassDestroyed>=axePlantRequiere && Counter.rockDestroyed>=axeRockRequiere)&&axeBought3==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=axePlantRequiere;
             Counter.rockDestroyed-=axeRockRequiere;
             hasAxeBought3 = true;
@@ -139,6 +144,7 @@ public class UpgradeSistem : MonoBehaviour
     }
     public void GreenArmorBought(){
         if((Counter.grassDestroyed>=greenArmorPlantRequiere && Counter.rockDestroyed>=greenArmorRockRequiere)&&greenArmor==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=greenArmorPlantRequiere;
             Counter.rockDestroyed-=greenArmorRockRequiere;
             hasGreenArmorbought = true;
@@ -148,6 +154,7 @@ public class UpgradeSistem : MonoBehaviour
     }
     public void RedArmorBought(){
         if((Counter.grassDestroyed>=redArmorPlantRequiere && Counter.rockDestroyed>=redArmorRockRequiere)&&redArmor==false){
+            SoundManager.Instance.PlaySound(Seffect);
             Counter.grassDestroyed-=redArmorPlantRequiere;
             Counter.rockDestroyed-=redArmorRockRequiere;
             hasRedArmorbought = true;

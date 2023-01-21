@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public Platformer player;
     public GameObject deathEffect;
     [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioClip die;
 
     [Header("Patrol")]
     public Transform patrolPoint1;
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         if(Health<=0){
             Instantiate(deathEffect,transform.position,Quaternion.identity);
-            StartCoroutine(Cooldown());
+            SoundManager.Instance.PlaySound(die);
             Destroy(this.gameObject);
             Counter.enemyKilled +=1;
         }

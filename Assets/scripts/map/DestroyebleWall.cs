@@ -9,6 +9,7 @@ public class DestroyebleWall : MonoBehaviour
     public GameObject brick;
     public GameObject wallDiff;
     public GameObject wallMain;
+    [SerializeField] private AudioClip boom;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class DestroyebleWall : MonoBehaviour
 
         }
         if(other.tag == "Ball"){
+            SoundManager.Instance.PlaySound(boom);
             Instantiate(brick,transform.position,Quaternion.identity);
             Instantiate(smoke2,transform.position,Quaternion.identity);
             wallDiff.SetActive(true);

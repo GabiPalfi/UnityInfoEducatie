@@ -22,6 +22,9 @@ public class OchiScript : MonoBehaviour
     public Transform patrolPoint1;
     public Transform patrolPoint2;
     public bool is1active = true;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioClip die;
+
     
     void Start()
     {
@@ -33,6 +36,7 @@ public class OchiScript : MonoBehaviour
     {
         if(Health<=0){
             Instantiate(deathEffect,transform.position,Quaternion.identity);
+            SoundManager.Instance.PlaySound(die);
             Destroy(this.gameObject);
             Counter.enemyKilled +=1;
             Counter.DeadEyeNumber++;
@@ -72,5 +76,6 @@ public class OchiScript : MonoBehaviour
     }
     private IEnumerator Cooldown(){
         yield return new WaitForSeconds(0.1f);
+        hit.Play();
     }
 }

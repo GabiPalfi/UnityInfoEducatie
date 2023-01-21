@@ -7,7 +7,7 @@ public class Key : MonoBehaviour
     private bool isFollowing;
     public float followSpeed;
     public Transform target;
-
+    [SerializeField] private AudioClip Seffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +23,7 @@ public class Key : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.collider.name == "Player"){
             if(!isFollowing){
+                SoundManager.Instance.PlaySound(Seffect);
                Platformer thePlayer = FindObjectOfType<Platformer>();
                target = thePlayer.keyFollowPoint;
                isFollowing = true;

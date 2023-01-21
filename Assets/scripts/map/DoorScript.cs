@@ -10,6 +10,7 @@ public class DoorScript : MonoBehaviour
     public GameObject effect;
     public GameObject camera;
     CameraScript cam;
+    [SerializeField] private AudioClip Seffect;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class DoorScript : MonoBehaviour
         if(collision.collider.name == "Player"){
             if(thePlayer.followingKey != null){
                 thePlayer.followingKey.target = transform;
+                SoundManager.Instance.PlaySound(Seffect);
                 Destroy(gameObject,lifeTime);
                 Destroy(key,lifeTime);
                 StartCoroutine(Delay());

@@ -27,6 +27,8 @@ public class EnemyBrute : MonoBehaviour
     private Vector2 effctPos;
     public GameObject smash;
     public Transform smashPos;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioClip die;
 
     // [Header("Patrol")]
     // public Transform patrolPoint1;
@@ -46,6 +48,7 @@ public class EnemyBrute : MonoBehaviour
         effctPos = new Vector2(transform.position.x,transform.position.y+2);
         if(Health<=0){
             Instantiate(deathEffect,effctPos,Quaternion.identity);
+            SoundManager.Instance.PlaySound(die);
             Destroy(this.gameObject);
             Counter.enemyKilled+=1;
         }
@@ -122,5 +125,6 @@ public class EnemyBrute : MonoBehaviour
     }
     private IEnumerator Cooldown(){
         yield return new WaitForSeconds(0.1f);
+        hit.Play();
     }
 }

@@ -16,6 +16,7 @@ public class Katana : MonoBehaviour
     public Platformer thePlayer;
     public UpgradeSistem upgrade;
     [SerializeField] private AudioSource slash;
+    [SerializeField] private AudioClip pickUPsound;
 
    [Header("Sprites")]
    public Sprite katana2;
@@ -80,6 +81,7 @@ public class Katana : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
+            SoundManager.Instance.PlaySound(pickUPsound);
             weaponOwned = true;
             col.enabled = !col.enabled;
         }
