@@ -7,6 +7,7 @@ public class ButtonScript : MonoBehaviour
 {
     private Animator anim;
     [SerializeField] private AudioClip ring;
+    [SerializeField] private AudioClip ringpressed;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class ButtonScript : MonoBehaviour
         //SoundManager.Instance.PlaySound(ring);
     }
     public void IsPressed(){
-        SoundManager.Instance.PlaySound(ring);
+        SoundManager.Instance.PlaySound(ringpressed);
         anim.SetBool("Presed",true);
         
     }

@@ -10,6 +10,13 @@ public class Counter : MonoBehaviour
     public static int bombNumber;
     public static int DeadEyeNumber;
     public static int dificulty=1;
+    public static bool SoundOn;
+
+    public void Update(){
+        if(SoundOn==false){
+            AudioListener.pause = false;
+        }
+    }
   
     
 }
