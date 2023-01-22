@@ -133217,11 +133217,13 @@ MonoBehaviour:
   walk: {fileID: 1657207969}
   dashSound: {fileID: 1657207970}
   waterSound: {fileID: 8300000, guid: 31ae27198814ff74985a95b5fa1a7159, type: 3}
+  dashColect: {fileID: 0}
   camera: {fileID: 773551787}
   canAnimate: 0
   joyStick: {fileID: 714324208}
   hasBeenPresed: 0
   jumpPresed: 0
+  dashButton: {fileID: 413341653}
 --- !u!82 &1657207968
 AudioSource:
   m_ObjectHideFlags: 0

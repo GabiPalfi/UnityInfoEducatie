@@ -114118,11 +114118,13 @@ MonoBehaviour:
   walk: {fileID: 1657207969}
   dashSound: {fileID: 1657207971}
   waterSound: {fileID: 8300000, guid: 31ae27198814ff74985a95b5fa1a7159, type: 3}
+  dashColect: {fileID: 0}
   camera: {fileID: 773551787}
   canAnimate: 0
   joyStick: {fileID: 714324208}
   hasBeenPresed: 0
   jumpPresed: 0
+  dashButton: {fileID: 413341653}
 --- !u!114 &1657207968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137799,6 +137801,9 @@ MonoBehaviour:
   Speed: 0
   canBoatMove: 0
   button: {fileID: 28496724}
+  waterSound: {fileID: 0}
+  canSound: 0
+  effectBoat: {fileID: 0}
 --- !u!1 &2009370284
 GameObject:
   m_ObjectHideFlags: 0

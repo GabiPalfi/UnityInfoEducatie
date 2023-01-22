@@ -46526,11 +46526,13 @@ MonoBehaviour:
   walk: {fileID: 1657207971}
   dashSound: {fileID: 1657207969}
   waterSound: {fileID: 0}
+  dashColect: {fileID: 0}
   camera: {fileID: 773551787}
   canAnimate: 0
   joyStick: {fileID: 714324208}
   hasBeenPresed: 0
   jumpPresed: 0
+  dashButton: {fileID: 413341653}
 --- !u!114 &1657207968
 MonoBehaviour:
   m_ObjectHideFlags: 0

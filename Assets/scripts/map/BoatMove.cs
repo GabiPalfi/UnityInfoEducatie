@@ -9,6 +9,9 @@ public class BoatMove : MonoBehaviour
     Vector2 targetPos;
     public bool canBoatMove;
     public GameObject button;
+    [SerializeField] private AudioClip waterSound;
+    public bool canSound;
+    public GameObject effectBoat;
 
     
 
@@ -31,6 +34,10 @@ public class BoatMove : MonoBehaviour
             }
             transform.position = Vector2.MoveTowards(transform.position,targetPos,Speed*Time.deltaTime);
         }
+        if(canSound){
+            StartCoroutine(Sound());
+            canSound=false;
+        }
         
     }
     public void OnTriggerEnter2D(Collider2D other) {
@@ -49,5 +56,12 @@ public class BoatMove : MonoBehaviour
      public void ButtonPressed(){
         button.SetActive(false);
         canBoatMove=true;
+        canSound=true;
+        effectBoat.SetActive(true);
+    }
+    IEnumerator Sound(){
+        SoundManager.Instance.PlaySound(waterSound);
+        yield return new WaitForSeconds(3.5f);
+        canSound=true;
     }
 }

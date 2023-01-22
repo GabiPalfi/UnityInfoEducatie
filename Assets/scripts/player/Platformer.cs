@@ -85,6 +85,7 @@ public class Platformer : MonoBehaviour
     [SerializeField] private AudioSource walk;
     [SerializeField] private AudioSource dashSound;
     [SerializeField] private AudioClip waterSound;
+    [SerializeField] private AudioClip dashColect;
    
     [Header("Camera")]
     public GameObject camera;
@@ -98,6 +99,7 @@ public class Platformer : MonoBehaviour
     public Joystick joyStick;
     public bool hasBeenPresed;
     public bool jumpPresed;
+    public GameObject dashButton;
     
 
 
@@ -237,6 +239,7 @@ public class Platformer : MonoBehaviour
         if(collision.collider.name == "Dash"){
             canDash=true;
             cam.isShaking = true;
+            SoundManager.Instance.PlaySound(dashColect);
             Destroy(powerUpDash);
         }
         if(collision.collider.name == "Water"){
@@ -327,7 +330,8 @@ public class Platformer : MonoBehaviour
                 Instantiate(dashEffect1,transform.position,Quaternion.identity);
                 //isDashReady = false;
                 anim.SetBool("IsDashing", true);
-            }     
+            }
+            dashButton.SetActive(true);  
         }
         
                 

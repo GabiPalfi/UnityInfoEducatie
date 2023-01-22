@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -25031,7 +25031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &413341654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107342,7 +107342,7 @@ MonoBehaviour:
   dashTime: 0.1
   dashcooldown: 0.75
   dashSpeed: 100
-  canDash: 1
+  canDash: 0
   katana: {fileID: 1697616266}
   effect1: {fileID: 3951773470439390021, guid: b022992a1aa15f14dacfbef295f83971, type: 3}
   effect2: {fileID: 6494804272141709032, guid: 49e95896e8dff7447be8f749246bbda2, type: 3}
@@ -107360,11 +107360,13 @@ MonoBehaviour:
   walk: {fileID: 1657207969}
   dashSound: {fileID: 1657207971}
   waterSound: {fileID: 8300000, guid: 31ae27198814ff74985a95b5fa1a7159, type: 3}
+  dashColect: {fileID: 8300000, guid: 7499dcbb18ace9740a505464c73b8568, type: 3}
   camera: {fileID: 773551787}
   canAnimate: 0
   joyStick: {fileID: 714324208}
   hasBeenPresed: 0
   jumpPresed: 0
+  dashButton: {fileID: 413341653}
 --- !u!114 &1657207968
 MonoBehaviour:
   m_ObjectHideFlags: 0
