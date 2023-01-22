@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject optionMenu;
     public GameObject startMenu;
+    public GameObject dificultyMenu;
     
     public void  PlayGame(){
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -21,5 +22,19 @@ public class MainMenu : MonoBehaviour
     public void StartMenu(){
         optionMenu.SetActive(false);
         startMenu.SetActive(true);
+    }
+    public void DificultyMenu(){
+        optionMenu.SetActive(false);
+        startMenu.SetActive(false);
+        dificultyMenu.SetActive(true);
+    }
+    public void EasyDeficulty(){
+        Counter.dificulty =1;
+    }
+    public void MediumDeficulty(){
+        Counter.dificulty =2;
+    }
+    public void HardDeficulty(){
+        Counter.dificulty =4;
     }
 }

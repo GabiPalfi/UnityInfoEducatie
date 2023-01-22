@@ -107313,16 +107313,16 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1726041674}
   receveHealth: 0
-  playerDamage: 50
-  CrabDamage: 2
+  playerDamage: 100
+  CrabDamage: 1
   SpikeDamage: 1
-  HamerDamage: 5
-  TankDamage: 4
+  HamerDamage: 3
+  TankDamage: 2
   knockback: 5
   plantHealth: 10
   resetPos: {fileID: 624604144}
   resetPos2: {fileID: 522518484}
-  waterDamage: 4
+  waterDamage: 2
   FishDamage: 0
   ochiDamage: 0
   axeObstacleDamage: 0

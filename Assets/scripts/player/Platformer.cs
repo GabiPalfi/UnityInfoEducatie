@@ -115,6 +115,7 @@ public class Platformer : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        playerDamage=playerDamage/Counter.dificulty;
     }
 
     void Update()
@@ -208,22 +209,22 @@ public class Platformer : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if(collision.collider.name == "Crab" ){
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            currentHealth-=CrabDamage;
+            currentHealth-=CrabDamage*Counter.dificulty;
             Hurt();
             Stuned();
         }
         if(collision.collider.name == "Spike" ){
-            currentHealth-=SpikeDamage;
+            currentHealth-=SpikeDamage*Counter.dificulty;
             Hurt();
 
         }
         if(collision.collider.name == "Enemy" ){
-            currentHealth-=HamerDamage;
+            currentHealth-=HamerDamage*Counter.dificulty;
             Hurt();
         }
         if(collision.collider.name == "Corn" ){
             cam.isShaking = true;
-            currentHealth-=TankDamage;
+            currentHealth-=TankDamage*Counter.dificulty;
             healthBar.SetHealth(currentHealth);
             transform.position = new Vector2(transform.position.x +knockback*-direction,transform.position.y+knockback/2);
         }
@@ -241,25 +242,25 @@ public class Platformer : MonoBehaviour
         if(collision.collider.name == "Water"){
             transform.position = resetPos.position;
             cam.isShaking = true;
-            currentHealth -= waterDamage;
+            currentHealth -= waterDamage*Counter.dificulty;
             healthBar.SetHealth(currentHealth);
             SoundManager.Instance.PlaySound(waterSound);
         }
         if(collision.collider.name == "Water1"){
             transform.position = resetPos2.position;
             cam.isShaking = true;
-            currentHealth -= waterDamage;
+            currentHealth -= waterDamage*Counter.dificulty;
             healthBar.SetHealth(currentHealth);
             SoundManager.Instance.PlaySound(waterSound);
         }
         if(collision.collider.name == "Fish"){
             cam.isShaking = true;
-            currentHealth -= FishDamage;
+            currentHealth -= FishDamage*Counter.dificulty;
             healthBar.SetHealth(currentHealth);
         }
         if(collision.collider.name == "Ochi"){
             cam.isShaking = true;
-            currentHealth -= ochiDamage;
+            currentHealth -= ochiDamage*Counter.dificulty;
             healthBar.SetHealth(currentHealth);
         }
         if(collision.collider.name == "Axe Obstacle"){

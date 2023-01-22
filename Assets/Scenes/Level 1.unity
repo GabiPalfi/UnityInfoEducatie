@@ -22795,7 +22795,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7cefd3ba83fac7c4abc9329bb5d5242c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.048
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -83643,7 +83643,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c7292198f1b2b3a429a84fedc12622cd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7ee1f2193022bfc4e9aaef1177375fb3, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.019
   m_Pitch: 1
@@ -133170,11 +133170,11 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 1726041674}
   receveHealth: 0
-  playerDamage: 50
-  CrabDamage: 2
+  playerDamage: 100
+  CrabDamage: 1
   SpikeDamage: 1
-  HamerDamage: 5
-  TankDamage: 4
+  HamerDamage: 3
+  TankDamage: 2
   knockback: 5
   plantHealth: 10
   resetPos: {fileID: 0}

@@ -9,6 +9,7 @@ public class Counter : MonoBehaviour
     public static int enemyKilled;
     public static int bombNumber;
     public static int DeadEyeNumber;
+    public static int dificulty=1;
   
     
 }
