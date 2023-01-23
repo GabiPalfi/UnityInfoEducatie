@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BossScriptLiboca : MonoBehaviour
 {
     public int health;
+    public int maxHealth;
     public float timeBtwDamage;
     public Slider healthBar;
     public Platformer player;
@@ -19,10 +20,18 @@ public class BossScriptLiboca : MonoBehaviour
     public Transform patrolPoint1;
     public Transform patrolPoint2;
     public bool is1active = true;
-
+    public bool hadDied;
+    public bool hasStageTwoStarted;
+    [SerializeField] private AudioSource hit;
+    [SerializeField] private AudioClip die;
+    [SerializeField] private AudioClip hammer; 
+    CameraScript cam;
+    public GameObject camera;
 
     void Start()
     {
+        health=maxHealth;
+        cam = camera.GetComponent<CameraScript>();
         player = player.GetComponent<Platformer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -51,18 +60,35 @@ public class BossScriptLiboca : MonoBehaviour
                 is1active = true;
             }
         }
+        if(health<=0){
+            if(hadDied == false){
+                anim.SetBool("HasDied",true);
+                SoundManager.Instance.PlaySound(die);
+                hadDied=true;
+            }
+            
+        }
+        if(health<=maxHealth/2){
+            hasStageTwoStarted = true;
+        }
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
             if(timeBtwDamage <=0){
-                player.currentHealth -= damage;
-                //timeBtwDamage = 1.5f;
-                player.healthBar.SetHealth(player.currentHealth);
+                if(canMove){
+                    player.currentHealth -= damage*2;
+                    player.healthBar.SetHealth(player.currentHealth);
+                }else{
+                    player.currentHealth -= damage;
+                    player.healthBar.SetHealth(player.currentHealth);
+                }
+               
             }
         }
         if(other.tag =="katana"){
             if(canTakeDamage){
                 anim.SetBool("IsDamaged", true);
+                hit.Play();
                 StartCoroutine(Hurt());
                 health-=player.playerDamage;
                 canTakeDamage=false;
@@ -87,4 +113,7 @@ public class BossScriptLiboca : MonoBehaviour
     //     }
 
     // }
+    public void IsHittingGround(){
+        cam.isShaking=true;
+    }
 }
