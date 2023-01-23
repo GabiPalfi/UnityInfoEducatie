@@ -15,6 +15,7 @@ TagManager:
   - Ball
   - Ochi
   - WallD
+  - PlayerPos
   layers:
   - Default
   - TransparentFX
