@@ -32,6 +32,7 @@ public class BossScriptLiboca : MonoBehaviour
     public GameObject camera;
     public GameObject SmashEffect;
     public GameObject dieEffect;
+    public GameObject blodEffect;
     public GameObject loot;
     public int  spawnCount;
     void Start()
@@ -103,6 +104,7 @@ public class BossScriptLiboca : MonoBehaviour
             if(canTakeDamage){
                 anim.SetBool("IsDamaged", true);
                 hit.Play();
+                Instantiate(blodEffect,effectPos.position,Quaternion.identity);
                 StartCoroutine(Hurt());
                 health-=player.playerDamage;
                 canTakeDamage=false;
