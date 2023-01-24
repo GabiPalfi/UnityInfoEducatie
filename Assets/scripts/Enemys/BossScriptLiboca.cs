@@ -10,6 +10,7 @@ public class BossScriptLiboca : MonoBehaviour
     public float timeBtwDamage;
     public Slider healthBar;
     public Platformer player;
+    public BossStage2SPawner spawner;
     public int damage;
     public bool canTakeDamage;
     private Animator anim;
@@ -19,20 +20,25 @@ public class BossScriptLiboca : MonoBehaviour
     Rigidbody2D rb;
     public Transform patrolPoint1;
     public Transform patrolPoint2;
+    public Transform effectPos;
     public bool is1active = true;
     public bool hadDied;
     public bool hasStageTwoStarted;
     [SerializeField] private AudioSource hit;
     [SerializeField] private AudioClip die;
     [SerializeField] private AudioClip hammer; 
+    [SerializeField] private AudioClip smashAudio; 
     CameraScript cam;
     public GameObject camera;
-
+    public GameObject SmashEffect;
+    public GameObject dieEffect;
+    public int  spawnCount;
     void Start()
     {
         health=maxHealth;
         cam = camera.GetComponent<CameraScript>();
         player = player.GetComponent<Platformer>();
+        spawner = spawner.GetComponent<BossStage2SPawner>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -42,6 +48,7 @@ public class BossScriptLiboca : MonoBehaviour
     {
         if(timeBtwDamage > 0){
             timeBtwDamage -= Time.deltaTime;
+            canTakeDamage=false;
         }
         healthBar.value =health;
         if(canMove){
@@ -65,7 +72,10 @@ public class BossScriptLiboca : MonoBehaviour
                 anim.SetBool("HasDied",true);
                 SoundManager.Instance.PlaySound(die);
                 hadDied=true;
+                Instantiate(dieEffect,effectPos.position,Quaternion.identity);
             }
+            canTakeDamage = false;
+            damage =0;
             
         }
         if(health<=maxHealth/2){
@@ -103,17 +113,18 @@ public class BossScriptLiboca : MonoBehaviour
         anim.SetBool("IsDamaged", false);
         canTakeDamage=true;
     }
-    // void ChasePlayer(){
-    //     if(transform.position.x <playerPos.position.x){
-    //         rb.velocity = new Vector2(speed,0);
-    //         transform.localScale = new Vector2(1,1);
-    //     }else{
-    //         rb.velocity = new Vector2(-speed,0);
-    //         transform.localScale = new Vector2(-1,1);
-    //     }
 
-    // }
     public void IsHittingGround(){
         cam.isShaking=true;
+        Instantiate(SmashEffect,effectPos.position,Quaternion.identity);
+        SoundManager.Instance.PlaySound(smashAudio);
+        if(hasStageTwoStarted){
+            for (int i = 0; i < spawnCount; i++)
+            {
+                spawner.Spawn();
+            }
+            speed =7;
+            
+        }
     }
 }
