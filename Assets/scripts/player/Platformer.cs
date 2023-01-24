@@ -118,6 +118,9 @@ public class Platformer : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         playerDamage=playerDamage/Counter.dificulty;
+        if(Counter.DashObtained){
+            canDash=true;
+        }
     }
 
     void Update()
@@ -237,10 +240,8 @@ public class Platformer : MonoBehaviour
             Destroy(powerUpDoubleJump);
         }
         if(collision.collider.name == "Dash"){
-            canDash=true;
-            cam.isShaking = true;
-            SoundManager.Instance.PlaySound(dashColect);
-            Destroy(powerUpDash);
+            DashAquire();
+            
         }
         if(collision.collider.name == "Water"){
             transform.position = resetPos.position;
@@ -336,6 +337,15 @@ public class Platformer : MonoBehaviour
         
                 
     }
+    void DashAquire(){
+        canDash=true;
+        cam.isShaking = true;
+        SoundManager.Instance.PlaySound(dashColect);
+        Destroy(powerUpDash);
+        Counter.DashObtained = true;
+        StartCoroutine(WaitDashOp());
+        //SceneManager.LoadScene("Level 2");
+    }
     public void HasBeenPresed(){
         hasBeenPresed = true;
     }
@@ -365,5 +375,9 @@ public class Platformer : MonoBehaviour
     private IEnumerator Stun(){
         yield return new WaitForSeconds(stunDuration);
         canMove=true;
+    }
+    private IEnumerator WaitDashOp(){
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Level 2");
     }
 }

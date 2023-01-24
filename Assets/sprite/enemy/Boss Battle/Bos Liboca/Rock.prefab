@@ -147,3 +147,4 @@ MonoBehaviour:
   canTakeDamage: 0
   damage: 0
   effect: {fileID: 6279507609359454596, guid: a269a9ee0dc8171449dbd3c6978240c0, type: 3}
+  smashAudio: {fileID: 8300000, guid: 873096bba95a30b4ca3b49f6d8a0a906, type: 3}

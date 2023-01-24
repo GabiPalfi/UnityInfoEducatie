@@ -11,6 +11,8 @@ public class Counter : MonoBehaviour
     public static int DeadEyeNumber;
     public static int dificulty=1;
     public static bool SoundOn;
+    public static bool DashObtained;
+    public static bool isLibocaKilled;
 
     public void Update(){
         if(SoundOn==false){

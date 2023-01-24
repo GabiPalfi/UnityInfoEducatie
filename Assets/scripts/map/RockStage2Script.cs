@@ -9,6 +9,7 @@ public class RockStage2Script : MonoBehaviour
     Platformer player;
     public int damage;
     public GameObject effect;
+    [SerializeField] private AudioClip smashAudio; 
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class RockStage2Script : MonoBehaviour
         if(collision.collider.name == "Floor" ){
             Destroy(gameObject,0.2f);
             Instantiate(effect,transform.position,Quaternion.identity);
+            SoundManager.Instance.PlaySound(smashAudio);
 
         }
         if(collision.collider.name == "Player" ){
@@ -37,6 +39,7 @@ public class RockStage2Script : MonoBehaviour
                 player.currentHealth -= damage;
                 player.healthBar.SetHealth(player.currentHealth);
                 Debug.Log("am lovit");
+                SoundManager.Instance.PlaySound(smashAudio);
             }
             
         }

@@ -32,6 +32,7 @@ public class BossScriptLiboca : MonoBehaviour
     public GameObject camera;
     public GameObject SmashEffect;
     public GameObject dieEffect;
+    public GameObject loot;
     public int  spawnCount;
     void Start()
     {
@@ -41,6 +42,7 @@ public class BossScriptLiboca : MonoBehaviour
         spawner = spawner.GetComponent<BossStage2SPawner>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        damage= damage*Counter.dificulty;
     }
 
     // Update is called once per frame
@@ -73,6 +75,8 @@ public class BossScriptLiboca : MonoBehaviour
                 SoundManager.Instance.PlaySound(die);
                 hadDied=true;
                 Instantiate(dieEffect,effectPos.position,Quaternion.identity);
+                Counter.isLibocaKilled=true;
+                loot.SetActive(true);
             }
             canTakeDamage = false;
             damage =0;
