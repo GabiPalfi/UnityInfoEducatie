@@ -95,21 +95,21 @@ public class Katana : MonoBehaviour
     public void Katana2(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = katana2;
         attackColdown-=0.1f;
-        thePlayer.playerDamage=70;
+        thePlayer.playerDamage=140;
     }
     public void Axe(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = axe;
         attackColdown+=0.2f;
-        thePlayer.playerDamage=90;
+        thePlayer.playerDamage=190;
     }
     public void Katana3(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = katana3;
         attackColdown-=0.1f;
-        thePlayer.playerDamage+=100;
+        thePlayer.playerDamage+=230;
     }
      public void Axe2(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = axe2;
         attackColdown+=0.2f;
-        thePlayer.playerDamage=150;
+        thePlayer.playerDamage=280;
     }
 }

@@ -121,6 +121,9 @@ public class Platformer : MonoBehaviour
         if(Counter.DashObtained){
             canDash=true;
         }
+         if(Counter.DoubleJumpObtained){
+            defaultAdditionalJumps =1;
+        }
     }
 
     void Update()
@@ -235,9 +238,10 @@ public class Platformer : MonoBehaviour
         }
         
         if(collision.collider.name == "double jump"){
-            defaultAdditionalJumps =1;
-            cam.isShaking = true;
-            Destroy(powerUpDoubleJump);
+            // defaultAdditionalJumps =1;
+            // cam.isShaking = true;
+            // Destroy(powerUpDoubleJump);
+            JumpAquire();
         }
         if(collision.collider.name == "Dash"){
             DashAquire();
@@ -346,6 +350,14 @@ public class Platformer : MonoBehaviour
         StartCoroutine(WaitDashOp());
         //SceneManager.LoadScene("Level 2");
     }
+    void JumpAquire(){
+        defaultAdditionalJumps =1;
+        cam.isShaking = true;
+        SoundManager.Instance.PlaySound(dashColect);
+        Counter.DoubleJumpObtained = true;
+        Destroy(powerUpDoubleJump);
+        StartCoroutine(WaitJumpOp());
+    }
     public void HasBeenPresed(){
         hasBeenPresed = true;
     }
@@ -379,5 +391,9 @@ public class Platformer : MonoBehaviour
     private IEnumerator WaitDashOp(){
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Level 2");
+    }
+    private IEnumerator WaitJumpOp(){
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Level 3");
     }
 }

@@ -12,7 +12,9 @@ public class Counter : MonoBehaviour
     public static int dificulty=1;
     public static bool SoundOn;
     public static bool DashObtained;
+    public static bool DoubleJumpObtained;
     public static bool isLibocaKilled;
+    public static bool isBoss2Killed;
 
     public void Update(){
         if(SoundOn==false){

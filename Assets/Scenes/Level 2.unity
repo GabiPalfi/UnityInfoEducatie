@@ -122304,7 +122304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followSpeed: 3.05
   target: {fileID: 0}
-  Seffect: {fileID: 0}
+  Seffect: {fileID: 8300000, guid: 7499dcbb18ace9740a505464c73b8568, type: 3}
 --- !u!212 &1813197874
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -93,10 +93,10 @@ public class BossScriptLiboca : MonoBehaviour
                 if(canMove){
                     player.currentHealth -= damage*2;
                     player.healthBar.SetHealth(player.currentHealth);
-                }else{
-                    player.currentHealth -= damage;
-                    player.healthBar.SetHealth(player.currentHealth);
-                }
+                }// }else{
+                //     player.currentHealth -= damage;
+                //     player.healthBar.SetHealth(player.currentHealth);
+                // }
                
             }
         }
