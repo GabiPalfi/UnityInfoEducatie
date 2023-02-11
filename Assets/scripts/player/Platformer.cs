@@ -238,9 +238,6 @@ public class Platformer : MonoBehaviour
         }
         
         if(collision.collider.name == "double jump"){
-            // defaultAdditionalJumps =1;
-            // cam.isShaking = true;
-            // Destroy(powerUpDoubleJump);
             JumpAquire();
         }
         if(collision.collider.name == "Dash"){

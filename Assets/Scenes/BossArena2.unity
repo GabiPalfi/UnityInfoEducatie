@@ -10899,7 +10899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &160274011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11875,7 +11875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &228301293
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12442,7 +12442,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 92a100bc6c442b04481cd7111ee07441, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13703,7 +13703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &464726288
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14299,7 +14299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &509139913
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24930,7 +24930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &935069856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25351,8 +25351,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972605592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5928636, y: 7.158951, z: -7.307813}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.7192593, y: 6.041413, z: -0.8408246}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1043531472}
@@ -25364,8 +25364,8 @@ Transform:
   - {fileID: 1004666268}
   - {fileID: 932436735}
   - {fileID: 1135703935}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1335866928}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &980038894
 GameObject:
@@ -33872,7 +33872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &1294070249
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34742,7 +34742,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
+--- !u!1 &1335866927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335866928}
+  - component: {fileID: 1335866929}
+  m_Layer: 0
+  m_Name: Stage2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335866928
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335866927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1360887666}
+  - {fileID: 972605593}
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335866929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335866927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc954fffaec5844eb58b56f9d51c2ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minX: -2
+  maxX: 2
 --- !u!1 &1343018167
 GameObject:
   m_ObjectHideFlags: 0
@@ -39755,8 +39802,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360887665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1263957, y: 1.1175379, z: -6.4669886}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1332414311}
@@ -39768,8 +39815,8 @@ Transform:
   - {fileID: 935069854}
   - {fileID: 1294070247}
   - {fileID: 228301291}
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1335866928}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1365522676
 GameObject:
@@ -47803,7 +47850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &1703934341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47927,7 +47974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1657207967}
-  damage: 1
+  damage: 3
 --- !u!61 &1705645444
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -57189,6 +57236,7 @@ MonoBehaviour:
   hadDied: 0
   player: {fileID: 1657207967}
   spawner: {fileID: 156267872}
+  spawnerStage2: {fileID: 1335866929}
   damage: 1
   canTakeDamage: 1
   timeBtwDamage: 1

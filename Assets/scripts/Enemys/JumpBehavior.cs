@@ -22,6 +22,7 @@ public class JumpBehavior : StateMachineBehaviour
         animator.SetBool("IsIdle",false);
         bossScript.canTakeDamage = false;
         bossScript.canMove = true;
+        bossScript.canAttackIcon.SetActive(true);
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

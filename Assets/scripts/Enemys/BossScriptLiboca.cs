@@ -35,6 +35,7 @@ public class BossScriptLiboca : MonoBehaviour
     public GameObject blodEffect;
     public GameObject loot;
     public int  spawnCount;
+    public GameObject canAttackIcon;
     void Start()
     {
         health=maxHealth;

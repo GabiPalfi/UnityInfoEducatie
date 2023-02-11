@@ -19,7 +19,7 @@ public class FireSTage2BossBattle : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) {
         if(other.tag=="Player"){
-            player.currentHealth-=damage;
+            player.currentHealth-=damage*Counter.dificulty;
             player.healthBar.SetHealth(player.currentHealth);
         }
     }

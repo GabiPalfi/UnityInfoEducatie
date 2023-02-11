@@ -23,6 +23,7 @@ public class Katana : MonoBehaviour
    public Sprite axe;
    public Sprite katana3;
    public Sprite axe2;
+   public int attackCount=0;
     // public GameObject camera;
     // CameraScript cam;
     
@@ -60,12 +61,21 @@ public class Katana : MonoBehaviour
             col.radius = 10;
             col.offset = new Vector2(5.5f,10f);
         }
-        
+        if(attackCount==3){
+            attackCount=1;
+        }
 
     }
     public void Attack(){
         if(canAttack && weaponOwned){
-            anim.Play("katana",0,0.0f);
+            attackCount++;
+            if(attackCount%2==1){
+                anim.Play("katana",0,0.0f);
+                //attackColdown-=0.25f;
+            }else{
+                anim.Play("katana 2",0,0.0f);
+                //attackColdown-=0.25f;
+            }
             Instantiate(efect,transform.position,Quaternion.identity);
             canAttack = false;
             col.enabled = !col.enabled;
@@ -75,7 +85,14 @@ public class Katana : MonoBehaviour
        
     }
     private IEnumerator Coroutine(){
+        if(attackCount%2==0){
+            attackColdown-=0.25f;
+        }else{
+            attackColdown=0.5f;
+        }
+        
         yield return new WaitForSeconds(attackColdown);
+        //attackCount=0;
         canAttack = true;
         col.enabled = !col.enabled;
     }

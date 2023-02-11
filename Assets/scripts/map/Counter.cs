@@ -15,6 +15,7 @@ public class Counter : MonoBehaviour
     public static bool DoubleJumpObtained;
     public static bool isLibocaKilled;
     public static bool isBoss2Killed;
+    public static int levelRL;
 
     public void Update(){
         if(SoundOn==false){

@@ -16,6 +16,7 @@ public class BossScriptMage : MonoBehaviour
     CameraScript cam;
     public Platformer player;
     public Boss2FireSpawner spawner;
+    public Boss2Stage2 spawnerStage2;
 
     [Header("Damage")]
     public int damage;
@@ -59,6 +60,7 @@ public class BossScriptMage : MonoBehaviour
         cam = camera.GetComponent<CameraScript>();
         anim = GetComponent<Animator>();
         canTakeDamage=true;
+        spawnerStage2 = spawnerStage2.GetComponent<Boss2Stage2>();
     }
 
     // Update is called once per frame
@@ -151,6 +153,7 @@ public class BossScriptMage : MonoBehaviour
     public void StartStage2(){
         if(hasStageTwoStarted){
             if(stage2Start==false){
+                spawnerStage2.Stage2();
                 SoundManager.Instance.PlaySound(fireStage2);
                 stage2Start = true;
                 warning.SetActive(true);
