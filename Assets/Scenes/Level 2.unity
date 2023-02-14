@@ -59015,7 +59015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 45f8ef263679c3544914c72af6fa5bfc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3466cfd3fbeafe428caa60558fcb09c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -108618,6 +108618,7 @@ MonoBehaviour:
   axe: {fileID: 0}
   katana3: {fileID: 0}
   axe2: {fileID: 0}
+  attackCount: 0
 --- !u!58 &1697616271
 CircleCollider2D:
   m_ObjectHideFlags: 0

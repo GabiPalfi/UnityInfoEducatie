@@ -77126,6 +77126,8 @@ MonoBehaviour:
   minLevel: 10
   selectMenu: {fileID: 1536116275}
   player: {fileID: 1657207967}
+  level: 0
+  shopID: 12
 --- !u!61 &1433835989
 BoxCollider2D:
   m_ObjectHideFlags: 0

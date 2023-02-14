@@ -43,4 +43,7 @@ public class MainMenu : MonoBehaviour
         startMenu.SetActive(false);
         gameModeMenu.SetActive(true);
     }
+    public void StartRogueLike(){
+        SceneManager.LoadScene("Hub");
+    }
 }
