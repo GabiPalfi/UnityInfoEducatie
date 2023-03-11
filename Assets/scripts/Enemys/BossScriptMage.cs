@@ -42,7 +42,7 @@ public class BossScriptMage : MonoBehaviour
     public GameObject fire;
     public GameObject loot;
 
-    [Header("Game Objects")]
+    [Header("Standard")]
     public float speed;
     public bool canMove;
 
