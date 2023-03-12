@@ -143,15 +143,15 @@ public class Platformer : MonoBehaviour
 
     void Move() {
         if(canMove){
-            float x = Input.GetAxisRaw("Horizontal");
-            // float x = joyStick.Horizontal;
-            // if(joyStick.Horizontal>=0.2f){
-            //     x = 1;
-            // }else if(joyStick.Horizontal <= -0.2f){
-            //     x=-1;
-            // }else{
-            //     x=0;
-            // }
+            //float x = Input.GetAxisRaw("Horizontal");
+            float x = joyStick.Horizontal;
+            if(joyStick.Horizontal>=0.2f){
+                x = 1;
+            }else if(joyStick.Horizontal <= -0.2f){
+                x=-1;
+            }else{
+                x=0;
+            }
             float moveBy = x * speed;
             rb.velocity = new Vector2(moveBy, rb.velocity.y);
             
