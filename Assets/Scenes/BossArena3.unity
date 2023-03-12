@@ -14956,8 +14956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c35a8af41a44a6429f71800ea38f668, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  maxHealth: 1000
+  health: 5000
+  maxHealth: 5000
   hadDied: 0
   player: {fileID: 1657207967}
   damage: 3
@@ -29690,9 +29690,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 5000
   m_WholeNumbers: 1
-  m_Value: 1000
+  m_Value: 5000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
