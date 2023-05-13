@@ -64,6 +64,9 @@ public class Katana : MonoBehaviour
         if(attackCount==3){
             attackCount=1;
         }
+        if(Input.GetKey(KeyCode.L)){
+            Attack();
+        }
 
     }
     public void Attack(){

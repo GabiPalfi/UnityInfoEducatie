@@ -99,7 +99,7 @@ public class Platformer : MonoBehaviour
     public Joystick joyStick;
     public bool hasBeenPresed;
     public bool jumpPresed;
-    public GameObject dashButton;
+    //public GameObject dashButton;
     
 
 
@@ -137,6 +137,8 @@ public class Platformer : MonoBehaviour
         Katana();
         Dash();
         Health();
+        JumpPresed();
+        HasBeenPresed();
 
     }
 
@@ -333,7 +335,7 @@ public class Platformer : MonoBehaviour
                 //isDashReady = false;
                 anim.SetBool("IsDashing", true);
             }
-            dashButton.SetActive(true);  
+           // dashButton.SetActive(true);  
         }
         
                 
@@ -356,10 +358,16 @@ public class Platformer : MonoBehaviour
         StartCoroutine(WaitJumpOp());
     }
     public void HasBeenPresed(){
-        hasBeenPresed = true;
+        if(Input.GetKey(KeyCode.K)){
+            hasBeenPresed = true;
+        }
+        
     }
     public void JumpPresed(){
-        jumpPresed = true;
+        if(Input.GetKeyDown("space")){
+            jumpPresed = true;
+        }
+        
     }
     // void Dash(){
     //     if(Input.GetKey(KeyCode.K) && isDashReady){

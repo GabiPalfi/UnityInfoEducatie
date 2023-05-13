@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6162,6 +6162,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -12974,7 +12979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &413341654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30351,7 +30356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1071213834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31891,7 +31896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1164947056
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47859,6 +47864,7 @@ MonoBehaviour:
   axe: {fileID: 21300000, guid: dfe98dad2e299ff47bb1e2d968e51729, type: 3}
   katana3: {fileID: 21300000, guid: 4ea904e7699052b4e9bf9e927051e774, type: 3}
   axe2: {fileID: 21300000, guid: 8187362286f1f114cb30ed5c9f903d1c, type: 3}
+  attackCount: 0
 --- !u!58 &1697616271
 CircleCollider2D:
   m_ObjectHideFlags: 0
