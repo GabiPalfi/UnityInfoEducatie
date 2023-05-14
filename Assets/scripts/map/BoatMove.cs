@@ -43,7 +43,8 @@ public class BoatMove : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
             other.transform.SetParent(this.transform);
-            button.SetActive(true);
+            //button.SetActive(true);
+            canBoatMove = true;
             
         }
     }

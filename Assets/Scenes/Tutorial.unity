@@ -6870,7 +6870,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 8599204823429384051, guid: c37424c702ffafe42b71ce9a0228b29b,
         type: 3}
       propertyPath: Seffect
@@ -12707,7 +12707,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf2fab1619c6a14c8a6b29439706a3d, type: 3}
 --- !u!4 &223804424 stripped
@@ -17142,7 +17142,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 8599204823429384051, guid: c37424c702ffafe42b71ce9a0228b29b,
         type: 3}
       propertyPath: Seffect
@@ -17818,7 +17818,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf2fab1619c6a14c8a6b29439706a3d, type: 3}
 --- !u!4 &624781716 stripped
@@ -24755,7 +24755,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 8599204823429384051, guid: c37424c702ffafe42b71ce9a0228b29b,
         type: 3}
       propertyPath: Seffect
@@ -35386,7 +35386,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf2fab1619c6a14c8a6b29439706a3d, type: 3}
 --- !u!4 &1123832546 stripped
@@ -35876,7 +35876,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 1163657649581072789, guid: c4f8a27af60b36248ae4d904f64c0d70,
         type: 3}
       propertyPath: m_SortingOrder
@@ -37508,7 +37508,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 8599204823429384051, guid: c37424c702ffafe42b71ce9a0228b29b,
         type: 3}
       propertyPath: Seffect
@@ -38533,12 +38533,17 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 1418199447174230721, guid: 5d00fc38b84fd884eb9651c1a9d1a88e,
         type: 3}
       propertyPath: effect
       value: 
       objectReference: {fileID: 1413583855}
+    - target: {fileID: 1418199447174230721, guid: 5d00fc38b84fd884eb9651c1a9d1a88e,
+        type: 3}
+      propertyPath: Seffect
+      value: 
+      objectReference: {fileID: 8300000, guid: af88e6cc55768da438c5f180aac63bf9, type: 3}
     - target: {fileID: 1418199447174230724, guid: 5d00fc38b84fd884eb9651c1a9d1a88e,
         type: 3}
       propertyPath: pl
@@ -44243,7 +44248,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 1163657649581072789, guid: c4f8a27af60b36248ae4d904f64c0d70,
         type: 3}
       propertyPath: m_SortingOrder
@@ -45097,7 +45102,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 8599204823429384051, guid: c37424c702ffafe42b71ce9a0228b29b,
         type: 3}
       propertyPath: Seffect
@@ -47087,6 +47092,7 @@ MonoBehaviour:
   axe: {fileID: 0}
   katana3: {fileID: 0}
   axe2: {fileID: 0}
+  attackCount: 0
 --- !u!58 &1697616271
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -55075,7 +55081,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf2fab1619c6a14c8a6b29439706a3d, type: 3}
 --- !u!4 &1878082271 stripped
@@ -57960,6 +57966,65 @@ Transform:
   m_Father: {fileID: 620500648}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2105677012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105677014}
+  - component: {fileID: 2105677013}
+  m_Layer: 0
+  m_Name: Camera Fake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2105677013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105677012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3e14c98f72a654a99fc32cb96b8083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  player: {fileID: 1657207964}
+  aheadDistance: 0
+  lookAhead: 0
+  cameraSpeed: 0
+  minimumY: 0
+  endY: 0
+  Up: 0
+  isShaking: 0
+  duration: 1
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &2105677014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105677012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 83.09112, y: 10.332587, z: -182.86719}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2105822486
 GameObject:
   m_ObjectHideFlags: 0
@@ -58281,7 +58346,7 @@ PrefabInstance:
         type: 3}
       propertyPath: camera
       value: 
-      objectReference: {fileID: 773551787}
+      objectReference: {fileID: 2105677012}
     - target: {fileID: 1163657649581072789, guid: c4f8a27af60b36248ae4d904f64c0d70,
         type: 3}
       propertyPath: m_SortingOrder
